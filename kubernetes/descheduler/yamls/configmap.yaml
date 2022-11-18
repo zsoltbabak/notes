@@ -8,21 +8,18 @@ data:
   policy.yaml: |
     apiVersion: "descheduler/v1alpha1"
     kind: "DeschedulerPolicy"
+    evictLocalStoragePods: true
     strategies:
       "RemoveDuplicates":
-         enabled: true
+         enabled: false
       "RemovePodsViolatingInterPodAntiAffinity":
-         enabled: true
+         enabled: false
       "LowNodeUtilization":
          enabled: true
          params:
            nodeResourceUtilizationThresholds:
              thresholds:
-               "cpu" : 20
-               "memory": 20
-               "pods": 20
+               "memory": 40
              targetThresholds:
-               "cpu" : 50
-               "memory": 50
-               "pods": 50
+               "memory": 70
 
